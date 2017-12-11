@@ -16,7 +16,7 @@
 #pragma mark - Setup/Teardown
 
 - (void)setup {
-    if ( [self hasAutomaticKeyboardAvoidingBehaviour] ) return;
+//    if ( [self hasAutomaticKeyboardAvoidingBehaviour] ) return;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -37,6 +37,7 @@
 }
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     [self setup];
 }
 
@@ -60,7 +61,7 @@
 
 -(void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-    if ( [self hasAutomaticKeyboardAvoidingBehaviour] ) return;
+//    if ( [self hasAutomaticKeyboardAvoidingBehaviour] ) return;
     [self TPKeyboardAvoiding_updateContentInset];
 }
 
